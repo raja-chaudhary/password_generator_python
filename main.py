@@ -17,7 +17,23 @@ total_characters = nr_letters + nr_symbols + nr_numbers
 characters = []
 for i in range(1, nr_letters+1):
     characters.append(letters[random.randint(0, 51)])
+# pass1 = "".join(characters)
+
+# Check if there is at least 1 uppercase letter in the password
+x = 0
+for i in characters:
+    if i.isupper():
+        x += 1
+
+# If there is no uppercase letter, make one letter uppercase randomly
+if x == 0:
+    y = random.choice(characters)
+    y_index = characters.index(y)
+    z = y.upper()
+    characters[y_index] = z
+
 pass1 = "".join(characters)
+
 
 # pulling out the letters randomly from the symbols list and appending them in an empty list of signs
 signs = []
